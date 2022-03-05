@@ -1,0 +1,27 @@
+appName: frontend
+replicaCount: 1
+image:
+  repository: 608320470413.dkr.ecr.us-east-1.amazonaws.com/frontend
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: frontend
+
+service: 
+  type: ClusterIP
+  port: 80
+  containerPort: 80
+
+  resources:
+   limits:
+     cpu: 250m
+     memory: 512Mi
+   requests: 
+     cpu: 250m
+     memory: 512Mi    
